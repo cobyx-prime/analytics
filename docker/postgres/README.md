@@ -29,6 +29,19 @@ user/db/password: см. .env
 docker exec -it analytics-postgres psql -U almat -d analytics
 ```
 
+## Датасет для практики (Chinook)
+
+Реальный датасет (275 артистов, 3503 трека, 412 счетов) для SQL-практики на настоящем масштабе,
+не на 5 строках. Грузится один раз в отдельную базу `chinook` внутри того же контейнера:
+
+```bash
+docker exec -i analytics-postgres psql -U almat -d analytics < seed/chinook.sql
+```
+
+Скрипт сам создаёт базу `chinook` (`DROP DATABASE IF EXISTS` + `CREATE DATABASE` внутри),
+поэтому можно перезапускать безопасно. Ноутбук `notebooks/02-postgres-chinook.ipynb`
+подключается именно к ней.
+
 ## Остановить
 
 ```bash
