@@ -9,5 +9,8 @@ __pycache__/
 venv/
 .venv/
 
+# docker
+docker/postgres/.env
+
 # os
 .DS_Store
